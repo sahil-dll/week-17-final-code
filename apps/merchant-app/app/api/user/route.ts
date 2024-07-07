@@ -12,6 +12,7 @@ export const GET = async () => {
             password: "securepassword" // Provide a secure password
         }
     });
+    
     return NextResponse.json({
         message: "hi there"
     });
