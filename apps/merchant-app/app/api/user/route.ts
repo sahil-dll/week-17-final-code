@@ -3,6 +3,7 @@ import { PrismaClient } from '@prisma/client';
 
 const client = new PrismaClient();
 
+
 export const GET = async () => {
     await client.user.create({
         data: {
