@@ -10,6 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      
       - name: Use Node.js
         uses: actions/setup-node@v3
         with:
@@ -18,10 +19,17 @@ jobs:
       - name: Install Dependencies
         run: npm install
         
+      - name: Set up DATABASE_URL
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        run: echo "DATABASE_URL=${{ secrets.DATABASE_URL }}" >> $GITHUB_ENV
+        
       - name: Generate Prisma Client
-        run: npm run db:generate  
-
+        run: npm run db:generate
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          
       - name: Run Build
-        run: npm run build  
-
-
+        run: npm run build
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
