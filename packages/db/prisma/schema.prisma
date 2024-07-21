@@ -10,6 +10,7 @@ datasource db {
   url      = "postgresql://neondb_owner:eouUg3Tjhx6z@ep-misty-darkness-a5fhujsx-pooler.us-east-2.aws.neon.tech/neondb?sslmode=require"
 }
 
+
 model User {
   id                Int                 @id @default(autoincrement())
   email             String?             @unique
