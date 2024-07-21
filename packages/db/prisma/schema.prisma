@@ -24,7 +24,7 @@ model User {
 
 model Merchant {
   id        Int      @id @default(autoincrement())
-  email     String   @unique
+  email     String  
   name      String?
   auth_type AuthType
 }
